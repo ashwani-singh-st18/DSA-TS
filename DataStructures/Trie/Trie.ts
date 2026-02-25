@@ -26,5 +26,17 @@ class Trie{
         }
         current.isEndOfWord = true;
     }
+
+    search(word: string): boolean{
+        let current = this.root;
+
+        for(let char of word){
+            if(!current.children[char]){
+                return false;
+            }
+            current = current.children[char];
+        }
+        return current.isEndOfWord;
+    }
 }
 
